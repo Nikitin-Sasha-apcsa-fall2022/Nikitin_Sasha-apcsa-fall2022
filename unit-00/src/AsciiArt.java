@@ -10,14 +10,16 @@ public class AsciiArt
 {
 	public static void main ( String[] args )
 	{
-		System.out.println("Your Name \n\n" );
-		System.out.println("What type of ANIMAL YOU WILL DRAW" );
+		System.out.println("Sasha" );
+		System.out.println("Turtle" );
 		System.out.println("\n\n\n\n" );
 
-		System.out.println("                /\\                " );
-		System.out.println("               /  \\               " );
-		System.out.println("              /    \\              " );
-		System.out.println("             [------]             " );
+		System.out.println("                __                " );
+		System.out.println("               /  \\    ____          " );
+		System.out.println("              /    \\__/     \\         " );
+		System.out.println("             [------] ______/        " );
+		System.out.println("             l  l  l                   " );
+
 		//add other output
 
 		System.out.println(" \n\n\n\nHelpFul Hints" );
