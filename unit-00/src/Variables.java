@@ -30,8 +30,9 @@ public class Variables
 		short shortOne = 3;
 		int intOne = -32;
 		long longOne = -213131;
-		float floatOne = 9823892;
+		float floatOne = 98238.66f;
 		boolean booleanOne = true;
+		String stringOne = "hey";
 
 
 
@@ -52,6 +53,8 @@ public class Variables
 		System.out.println("*64 bit - long = "+longOne+"\t*");
 		System.out.println("*32 bit - float = "+floatOne+"\t*");
 		System.out.println("*16 bit - boolean = "+booleanOne+"\t*");
+		System.out.println("*8 bit - string = "+stringOne+"\t*");
+
 
 
 
