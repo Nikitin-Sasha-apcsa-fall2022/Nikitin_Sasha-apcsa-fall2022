@@ -1,5 +1,5 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
+//Name - Sasha
 //Date -
 //Class -
 //Lab  - 

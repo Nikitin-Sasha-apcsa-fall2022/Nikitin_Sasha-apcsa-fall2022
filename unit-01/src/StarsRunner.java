@@ -24,7 +24,6 @@ public class StarsRunner
       test.printTwentyDashes();
       test.printTwentyStars();
       test.printTwoBlankLines();
-      
       test.printTwentyDashes();
       test.printTwentyStars();
       test.printTwentyDashes();
@@ -38,7 +37,6 @@ public class StarsRunner
       test.printTwentyDashes();
       test.printTwentyStars();
       
-
 
    }
 }
