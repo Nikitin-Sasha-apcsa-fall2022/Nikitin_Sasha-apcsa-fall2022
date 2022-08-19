@@ -31,7 +31,7 @@ public class DistanceRunner
 	Distance test = new Distance(x1,x2,y1,y2);
 		test.calcDistance();
 		//test.print(test.toString());
-		System.out.println(test.toString());
+		System.out.println(test);
 		
 	}
 }
