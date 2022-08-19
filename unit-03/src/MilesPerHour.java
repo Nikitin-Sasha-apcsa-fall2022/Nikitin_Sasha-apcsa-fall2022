@@ -38,7 +38,7 @@ public class MilesPerHour
 
 	public void calcMPH()
 	{
-		mph = (distance/(hours+minutes/60)); 
+		mph = Math.round((distance)/(hours + (minutes/60))); 
 		
 	}
 	
@@ -47,7 +47,7 @@ public class MilesPerHour
 	{
 		
 	}
-	
+
 	//create a print or toString or both
 	
 	public String toString()
