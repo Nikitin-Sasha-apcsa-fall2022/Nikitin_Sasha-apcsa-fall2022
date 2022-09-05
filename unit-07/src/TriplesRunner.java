@@ -3,10 +3,18 @@
 //Name -  
 
 import static java.lang.System.*;
+import java.util.Scanner;
+
 
 public class TriplesRunner
 {
    public static void main(String args[])
    {
+	   Triples test = new Triples();
+	   
+	   test.setNum(110);
+	   System.out.print(test);
+		
+		
 	}
 }

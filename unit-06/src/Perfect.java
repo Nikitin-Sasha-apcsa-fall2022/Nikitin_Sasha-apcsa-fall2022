@@ -20,11 +20,29 @@ public class Perfect
    
 	public boolean isPerfect()
 	{
+		int sum = 0;
+		int i = 1; 
 		
-		if (number % )
-		return false;
+		while(i < number/2) {
+			if (number % i ==0) {
+				sum += i;
+				i++;
+			}
+			else {
+				i++;
+			}
+		}
+		if(sum == number) return true;
+		else return false;	
+		
+	
 	}
 
-	//add a toString	
-	
+	public String toString() {
+		if(isPerfect()==true) return number + " is perfect.";
+		
+		else return number + " is not perfect.";
+	}
+			
+
 }
