@@ -6,16 +6,33 @@ import static java.lang.System.*;
 
 class Rational implements Comparable<Rational>
 {
-	//add two instance variables
-
-	//write two constructors
-
-
-	//write a setRational method
+	private int num;
+	private int den; 
 	
 
-	//write  a set method for numerator and denominator
+	public Rational(){
+	num = 1;
+	den = 1; 
+	}
 
+	public Rational(int numerator, int denominator) {
+		setNumerator(numerator);
+		setDenominator(denominator);
+		setRational(numerator, denominator);
+	}
+
+	public void setRational( int numerator, int denominator) {
+		num = numerator; 
+		den = denominator; 
+	}
+	
+	public void setNumerator(int numerator) {
+		num = numerator; 
+	}
+	
+	public void setDenominator (int denominator) {
+		den = denominator; 
+	}
 	
 	public void add(Rational  other)
 	{
@@ -24,28 +41,42 @@ class Rational implements Comparable<Rational>
 		//new denominator = (den1 * den2)
 		
 		
-
+		int newNumerator = num * other.getDenominator() + den * other.getNumerator(); 
+		int newDenominator = den * other.getDenominator(); 
+		
+		setRational(newNumerator, newDenominator);
 
 		reduce();
 	}
 
 	private void reduce()
 	{
-
-
-
+		if	(num != 0) {
+			int common = gcd(num, den);
+			
+			num = num/common; 
+			den = den/common; 
+		}
+			
 	}
+
+
 
 	private int gcd(int numOne, int numTwo)
 	{
-
-
-		return 1;
+		int gcdFinal = 1; 
+		for (int i = 1; i<numOne*numTwo; i++) {
+			if(numOne % i == 0 && numTwo % i == 0) {
+				gcdFinal = i; 
+			}
+		}
+		return gcdFinal; 
 	}
 
 	public Object clone ()
 	{
-		return "";
+		Rational obj = new Rational(num, den);
+		return obj; 
 	}
 
 
@@ -53,25 +84,42 @@ class Rational implements Comparable<Rational>
 
 	//write get methods for numerator and denominator
 	
+	public int getNumerator() {
+		return num;
+	}
 	
-	public boolean equals( Object obj)
+	public int getDenominator() {
+		return den;
+	}
+	
+	
+	public boolean equals(Rational obj)
 	{
-
+		this.reduce();
+		obj.reduce();
+		
+		if(this.getDenominator()==obj.getDenominator() && this.getNumerator()==obj.getNumerator()) {
+			return true;
+		}
 
 		return false;
 	}
 
 	public int compareTo(Rational other)
 	{
-
-
-		return -1;
+		if((double)num/den > (double)other.getNumerator()/other.getDenominator()) return 1;
+		if((double)num/den == (double)other.getNumerator()/other.getDenominator()) return 0;
+		else return -1;
+		
+		
 	}
 
 
 
 	
 	//write  toString() method
-	
+	public String toString() {
+		return num + "/" + den;
+	}
 	
 }
