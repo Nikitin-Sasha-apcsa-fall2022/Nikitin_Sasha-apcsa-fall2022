@@ -9,8 +9,12 @@ import static java.lang.System.*;
 
 public class ToyStoreRunner
 {
-	public static void main( String args[] )
+	public static void main(String args[] )
 	{
-
+		ToyStore test = new ToyStore();
+		test.loadToys("sorry bat sorry sorry sorry train train teddy teddy ball ball");
+		test.sortToysByCount();
+		System.out.println(test);
+		System.out.println(test.getMostFrequentToy());
 	}
 }
