@@ -10,11 +10,12 @@ public class Word implements Comparable<Word>
 
 	public Word( String s )
 	{
+		word = s; 
 	}
 
 	public int compareTo( Word rhs )
 	{		
-		return 0;
+		
 	}
 
 	public String toString()
