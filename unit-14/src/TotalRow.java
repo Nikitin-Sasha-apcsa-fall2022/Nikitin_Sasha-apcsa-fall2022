@@ -8,7 +8,8 @@ public class TotalRow
 {
     public static List<Integer> getRowTotals( int[][] m )
     {
-    	int count = 0;ArrayList<Integer> dog = new ArrayList<Integer>();
+    	int count = 0;
+    	ArrayList<Integer> dog = new ArrayList<Integer>();
 		for(int r = 0; r < m.length; r++) {
 			for(int c = 0; c<m[r].length; c++) {
 				count += m[r][c];
