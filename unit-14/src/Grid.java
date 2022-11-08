@@ -26,7 +26,6 @@ public class Grid
 	{
 		int count = 0;
 		int count2 = 0;
-		int maxIndex = 0;
 		for(int i = 0; i<vals.length-1; i++) {
 			for(int r = 0; r<grid.length; r++) {
 				for(int c = 0; c<grid[r].length; c++) {
