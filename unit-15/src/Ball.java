@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - 
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -18,55 +18,57 @@ public class Ball extends Block
 	}
 
 	//add the other Ball constructors
-	
-
-	public Ball(int x, int y) {
+	public Ball(int x, int y)
+	{
 		setX(x);
-		setY(y);
+		setYSpeed(y);
 		xSpeed = 3;
 		ySpeed = 1;
 	}
 	
-	public Ball(int x, int y, int width, int height) {
-		this(x, y);
+	public Ball(int x, int y, int width, int height)
+	{
+		this(x,y);
 		setWidth(width);
 		setHeight(height);
 	}
-	
 	public Ball(int x, int y, int width, int height, Color color) {
 		this(x, y);
 		setWidth(width);
 		setHeight(height);
 		setColor(color);
 	}
-	
-	public Ball(int x, int y, int width, int height, Color color, int xS, int yS) {
+	public Ball(int x, int y, int width, int height, int xSpeed, int ySpeed)
+	{
+		this(x, y);
+		setWidth(width);
+		setHeight(height);
+		setXSpeed(xSpeed);
+		setYSpeed(ySpeed);
+	}
+	public Ball(int x, int y, int width, int height, Color color, int xSpeed, int ySpeed)
+	{
 		this(x, y);
 		setWidth(width);
 		setHeight(height);
 		setColor(color);
-		setXSpeed(xS);
-		setYSpeed(yS);
-	}	
-	
-	   
+		setXSpeed(xSpeed);
+		setYSpeed(ySpeed);
+	}
    //add the set methods
-   
-
-
 	public void setXSpeed(int xS) {
 		xSpeed = xS;
 	}
-	
+   
 	public void setYSpeed(int yS) {
 		ySpeed = yS;
 	}
    
+
    public void moveAndDraw(Graphics window)
    {
    	//draw a white ball at old ball location
-
-	   draw(window, Color.WHITE);
+	  draw(window, Color.WHITE);
       setX(getX()+xSpeed);
 		//setY
       setY(getY()+ySpeed);
@@ -90,27 +92,30 @@ public class Ball extends Block
 	public int getYSpeed() {
 		return ySpeed;
 	}
-	
 	public boolean didCollideLeft(Object obj) {
-		return getX() <= ((Block) obj).getX() + ((Block) obj).getWidth()  + Math.abs(xSpeed) && getY() <= ((Block) obj).getY() + ((Block) obj).getHeight() && getY() + getHeight() >= ((Block) obj).getY();
+		return getX() <= ((Block) obj).getX() + ((Block) obj).getWidth()  + Math.abs(xSpeed) && getY() <= 
+				((Block) obj).getY() + ((Block) obj).getHeight() && getY() + getHeight() >= ((Block) obj).getY();
 	}
 	
 	public boolean didCollideRight(Object obj) {
-			return getX() + getWidth() >= ((Block) obj).getX() && getY() <= ((Block) obj).getY() + ((Block) obj).getHeight() && getY() + getHeight() >= ((Block) obj).getY();
+		return getX() + getWidth() >= ((Block) obj).getX() && getY() <= 
+				((Block) obj).getY() + ((Block) obj).getHeight() && getY() + getHeight() >= ((Block) obj).getY();
 	}
 	
 	public boolean didCollideTop(Object obj) {
-		return getX() > ((Block) obj).getX() && getX() < ((Block) obj).getX() + ((Block) obj).getWidth() && getY() <= ((Block) obj).getY() + ((Block) obj).getHeight() && getY() > ((Block) obj).getY();	
+		return getX() > ((Block) obj).getX() && getX() < ((Block) obj).getX() + ((Block) obj).getWidth() && getY() <= 
+				((Block) obj).getY() + ((Block) obj).getHeight() && getY() > ((Block) obj).getY();
 	}
 	
 	public boolean didCollideBottom(Object obj) {
-		return getX() > ((Block) obj).getX() && getX() < ((Block) obj).getX() + ((Block) obj).getWidth() && getY() < ((Block) obj).getY() + ((Block) obj).getHeight() && getY() + getHeight() >= ((Block) obj).getY();
+		return getX() > ((Block) obj).getX() && getX() < ((Block) obj).getX() + ((Block) obj).getWidth() && getY() < 
+				((Block) obj).getY() + ((Block) obj).getHeight() && getY() + getHeight() >= ((Block) obj).getY();
 	}
 	
 	public void onCollide() {
 		
 	}
-	
+
    //add a toString() method
 	public String toString() {
 		 return getX() + ", " + getY() + ", " + getWidth() + ", " + getHeight() + ", " + getColor() + ", " + xSpeed + ", " + ySpeed;

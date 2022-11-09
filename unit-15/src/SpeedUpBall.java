@@ -11,6 +11,8 @@ class SpeedUpBall extends Ball
 
    //instance variables
 	private boolean spedUp = false;
+	private int xSpeed;
+	private int ySpeed;
 
    public SpeedUpBall()
    {
@@ -39,6 +41,16 @@ class SpeedUpBall extends Ball
 	   super(x, y, wid, ht, col, xSpd, ySpd);
    }
 
+   public void setXSpeed( int xSpd )
+   {
+	   xSpeed = xSpd;
+   }
+
+   public void setYSpeed( int ySpd )
+   {
+	   ySpeed = ySpd;
+   }
+   
    @Override
    public void moveAndDraw(Graphics window)
    {

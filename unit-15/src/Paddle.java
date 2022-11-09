@@ -1,7 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -39,6 +38,7 @@ public class Paddle extends Block
 	   super(x, y, width, height, color);
 	   speed = s;
    }
+
 
    public void moveUpAndDraw(Graphics window)
    {
