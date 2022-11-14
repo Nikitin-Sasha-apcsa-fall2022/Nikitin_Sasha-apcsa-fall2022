@@ -11,7 +11,7 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
@@ -20,7 +20,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -29,7 +29,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -38,7 +38,7 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//640x480.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -46,7 +46,7 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -58,7 +58,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+   // testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -68,7 +68,7 @@ public class PictureTester
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
-    //testMirrorGull();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();

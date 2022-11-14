@@ -118,6 +118,70 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void mirrorVerticalRightToLeft() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int width = pixels[0].length;
+	  for (int row = 0; row < pixels.length; row++) 
+	  {
+		  for (int col = width/2; col < width; col++) 
+		  {
+			  rightPixel = pixels[row][col];
+			  leftPixel = pixels[row][width - 1 - col];
+			  leftPixel.setColor(rightPixel.getColor());
+	      }
+	    }
+  }
+  
+  public void mirrorHorizontal() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel topPixel = null;
+	  Pixel bottomPixel = null;
+	  int width = pixels[0].length;
+	  for (int row = 0; row < pixels.length/2; row++) {
+		  for (int col = 0; col < width; col++) {
+			  topPixel = pixels[row][col];
+			  bottomPixel = pixels[pixels.length-1-row][col];
+			  bottomPixel.setColor(topPixel.getColor());
+	      }
+	  }
+  }
+  
+  public void mirrorHorizontalBotToTop() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel topPixel = null;
+	  Pixel bottomPixel = null;
+	  int width = pixels[0].length;
+	  for (int row = pixels.length/2; row < pixels.length; row++) {
+		  for (int col = 0; col < width; col++) {
+			  bottomPixel = pixels[row][col];
+			  topPixel = pixels[pixels.length-1-row][col];
+			  topPixel.setColor(bottomPixel.getColor());
+	      }
+	  }
+  }
+  
+  public void mirrorDiagonal()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topRightPixel = null;
+      Pixel bottomLeftPixel = null;
+      int maxLength;
+      if (pixels.length < pixels[0].length) { maxLength = pixels.length; }
+      else {maxLength = pixels[0].length; }
+      
+      for (int row = 0; row < maxLength; row++)
+      {
+          for (int col = row; col < maxLength; col++)
+          {
+              topRightPixel = pixels[row][col];
+              bottomLeftPixel = pixels[col][row];
+              bottomLeftPixel.setColor(topRightPixel.getColor());
+          }
+      }
+  }
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -176,8 +240,8 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001\\flower1.jpg");
+    Picture flower2 = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001\\flower2.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -223,7 +287,7 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001\\beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
