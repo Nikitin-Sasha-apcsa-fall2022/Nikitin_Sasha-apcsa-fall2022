@@ -157,15 +157,16 @@ public class PictureTester
   
   
   public static void testEncodeAndDecode() {
-	  Picture original = new Picture("C:\\Users\\18582\\Downloads//msg.jpg");
+	  Picture original = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//arch.jpg");
 	    Picture hide = new Picture("C:\\Users\\18582\\Downloads//apple_icon.jpg");
+	    
 	    
 	    original.explore();
 	    original.encode(hide);
 	    original.explore();
-	    original.decode();
-	    original.explore();
-	  
+	    Picture decoded = original.decode(); 
+
+	  decoded.explore(); 
   }
   
   /** Main method for testing.  Every class can have a main
@@ -175,27 +176,25 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-   // testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-	 // testMirrorVerticalRightToLeft();
-	  //testMirrorHorizontal();
-//	  testMirrorHorizontalBotToTop();
-//	  testMirrorDiagonal();
-  //  testMirrorVertical();
+	//testMirrorVerticalRightToLeft();
+	//testMirrorHorizontal();
+	//testMirrorHorizontalBotToTop();
+	//testMirrorDiagonal();
+    //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
-	  
-	 // testMyCollage();
-    //testCopy();
-	  
+    // testCollage();
+	//testMyCollage();
+    //testCopy();   
 	//testCopy2();
     //testEdgeDetection();
     //testEdgeDetection2();

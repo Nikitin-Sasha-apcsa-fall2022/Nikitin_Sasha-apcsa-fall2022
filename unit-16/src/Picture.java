@@ -488,22 +488,19 @@ public class Picture extends SimplePicture
   Pixel currPixel = null;
   Pixel messagePixel = null;
   int count = 0;
-  for (int row = 0; row < this.getHeight(); row++)
-  {
-  for (int col = 0; col < this.getWidth(); col++)
-  {
-  // if the current pixel red is odd make it even
-  currPixel = currPixels[row][col];
-  if (currPixel.getRed() % 2 == 1)
-  currPixel.setRed(currPixel.getRed() - 1);
-  messagePixel = messagePixels[row][col];
-  if (messagePixel.colorDistance(Color.BLACK) < 50)
-  {
-  currPixel.setRed(currPixel.getRed() + 1);
-  count++;
-  }
-  }
-  }
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 1; col < this.getWidth(); col+=2)
+		  {
+			  currPixel = currPixels[row][col];
+			  
+			  System.out.println(Integer.toBinaryString(currPixel.getBlue())); 
+			  System.out.println(Integer.toBinaryString(currPixel.getGreen())); 
+			}
+			  count++;
+			  
+		  
+	  }
   System.out.println(count);
   }
   /**
@@ -522,19 +519,26 @@ public class Picture extends SimplePicture
   Picture messagePicture = new Picture(height,width);
   Pixel[][] messagePixels = messagePicture.getPixels2D();
   int count = 0;
-  for (int row = 0; row < this.getHeight(); row++)
-  {
-  for (int col = 0; col < this.getWidth(); col++)
-  {
-  currPixel = pixels[row][col];
-  messagePixel = messagePixels[row][col];
-  if (currPixel.getRed() % 2 == 1)
-  {
-  messagePixel.setColor(Color.BLACK);
-  count++;
-  }
-  }
-  }
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 1; col < this.getWidth(); col+=2)
+		  {
+		  currPixel = pixels[row][col];
+		  messagePixel = messagePixels[row][col];
+			  if (currPixel.getRed() == pixels[row][col-1].getRed() &&
+					  currPixel.getGreen() == pixels[row][col-1].getGreen() &&
+					  	currPixel.getBlue() == pixels[row][col-1].getBlue())
+			  {
+			  pixels[row][col].setColor(Color.BLACK);
+			  pixels[row][col-1].setColor(Color.BLACK);
+			  count++;
+			  }
+			  else {
+				  pixels[row][col].setColor(Color.WHITE);
+				  pixels[row][col-1].setColor(Color.WHITE);
+			  }
+		  }
+	  }
   System.out.println(count);
   return messagePicture;
   }
