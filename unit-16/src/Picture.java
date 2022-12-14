@@ -377,29 +377,29 @@ public class Picture extends SimplePicture
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
-  public void edgeDetection(int edgeDist)
-  {
-    Pixel leftPixel = null;
-    Pixel rightPixel = null;
-    Pixel[][] pixels = this.getPixels2D();
-    Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
-    {
-      for (int col = 0; 
-           col < pixels[0].length-1; col++)
-      {
-        leftPixel = pixels[row][col];
-        rightPixel = pixels[row][col+1];
-        rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > 
-            edgeDist)
-          leftPixel.setColor(Color.BLACK);
-        else
-          leftPixel.setColor(Color.WHITE);
-      }
-    }
-  }
-  
+//  public void edgeDetection(int edgeDist)
+//  {
+//    Pixel leftPixel = null;
+//    Pixel rightPixel = null;
+//    Pixel[][] pixels = this.getPixels2D();
+//    Color rightColor = null;
+//    for (int row = 0; row < pixels.length; row++)
+//    {
+//      for (int col = 0; 
+//           col < pixels[0].length-1; col++)
+//      {
+//        leftPixel = pixels[row][col];
+//        rightPixel = pixels[row][col+1];
+//        rightColor = rightPixel.getColor();
+//        if (leftPixel.colorDistance(rightColor) > 
+//            edgeDist)
+//          leftPixel.setColor(Color.BLACK);
+//        else
+//          leftPixel.setColor(Color.WHITE);
+//      }
+//    }
+//  }
+//  
   public void myCollage()
   {
 	  Picture flower1 = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//kitten2.jpg");
@@ -488,21 +488,37 @@ public class Picture extends SimplePicture
   Pixel currPixel = null;
   Pixel messagePixel = null;
   int count = 0;
+  int correct = 0; 
+  int total = 0; 
+  
 	  for (int row = 0; row < this.getHeight(); row++)
 	  {
-		  for (int col = 1; col < this.getWidth(); col+=2)
+		  for (int col = 0; col < this.getWidth(); col++)
 		  {
-			  currPixel = currPixels[row][col];
-			  
-			  System.out.println(Integer.toBinaryString(currPixel.getBlue())); 
-			  System.out.println(Integer.toBinaryString(currPixel.getGreen())); 
+			  total++; 
+			currPixel = currPixels[row][col];
+			messagePixel = messagePixels[row][col];
+			 int remainder = 0; 
+			
+			if (currPixel.getRed()%7!=0 && currPixel.getRed() % 3 !=0) {
+				remainder = Math.min((int)currPixel.getRed() % 7, (int)currPixel.getRed() % 3); 
+				currPixel.setRed(currPixel.getRed()-remainder);
 			}
-			  count++;
-			  
-		  
-	  }
-  System.out.println(count);
+
+			if(messagePixel.colorDistance(Color.BLACK) < 50){
+					if (currPixel.getRed()!=255) currPixel.setRed(currPixel.getRed()+1);
+					else currPixel.setRed(currPixel.getRed()-1);
+
+			}
+
+			count++;
+		 }
+		}
+  System.out.println(total + " " + correct);
   }
+  
+  
+   
   /**
   * Method to decode a message hidden in the
   * red value of the current picture
@@ -521,23 +537,16 @@ public class Picture extends SimplePicture
   int count = 0;
 	  for (int row = 0; row < this.getHeight(); row++)
 	  {
-		  for (int col = 1; col < this.getWidth(); col+=2)
+		  for (int col = 1; col < this.getWidth(); col++)
 		  {
-		  currPixel = pixels[row][col];
-		  messagePixel = messagePixels[row][col];
-			  if (currPixel.getRed() == pixels[row][col-1].getRed() &&
-					  currPixel.getGreen() == pixels[row][col-1].getGreen() &&
-					  	currPixel.getBlue() == pixels[row][col-1].getBlue())
-			  {
-			  pixels[row][col].setColor(Color.BLACK);
-			  pixels[row][col-1].setColor(Color.BLACK);
-			  count++;
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+	
+			  if(currPixel.getRed() % 3 !=0 && currPixel.getRed()%7!=0) {
+				  messagePixel.setColor(Color.BLACK);
+			  count++;  
 			  }
-			  else {
-				  pixels[row][col].setColor(Color.WHITE);
-				  pixels[row][col-1].setColor(Color.WHITE);
-			  }
-		  }
+		 }
 	  }
   System.out.println(count);
   return messagePicture;

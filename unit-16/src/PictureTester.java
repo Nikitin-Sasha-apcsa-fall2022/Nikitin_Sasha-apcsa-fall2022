@@ -156,8 +156,20 @@ public class PictureTester
   }
   
   
+  public static void testEncode() {
+	  Picture original = new Picture("C:\\\\Users\\\\18582\\\\Downloads\\\\drive-download-20221114T182302Z-001//arch.jpg");
+	    Picture hide = new Picture("C:\\Users\\18582\\Downloads//apple_icon.jpg");
+
+	    original.explore();
+	    original.encode(hide);
+	    original.explore();
+	  
+	  
+  }
+  
+  
   public static void testEncodeAndDecode() {
-	  Picture original = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//arch.jpg");
+	  Picture original = new Picture("C:\\Users\\18582\\Downloads\\drive-download-20221114T182302Z-001//beach.jpg");
 	    Picture hide = new Picture("C:\\Users\\18582\\Downloads//apple_icon.jpg");
 	    
 	    
@@ -205,6 +217,8 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
 	  
-	  testEncodeAndDecode();
+	//testEncode();
+	  
+	 testEncodeAndDecode();
   }
 }
